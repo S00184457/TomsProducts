@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-product-list',
@@ -7,11 +7,20 @@ import { Component } from '@angular/core';
 })
 
 
-export class ProductListComponent {
+export class ProductListComponent implements OnInit{
     pageTitle: string = "Product List";
     listFilter: string = "";
-    imageHeight: number = 50;
-    toggleImage(): void{};
+    imageHeight: number = 60;
+    ngOnInit(): void {console.log('In OnInit');}
+
+    toggleImage(): void{
+        if(this.imageHeight == 60)
+        {
+            this.imageHeight = 120;
+        }
+        else
+            this.imageHeight = 60;
+    };
 
 
     products: IProduct[] = [
